@@ -12,6 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->urlInput->setText("https://google.com");
+    ui->urlInput->setToolTip("Enter the url here");
+    ui->urlInput->setPlaceholderText("Enter the url here");
+    ui->headers->setPlaceholderText("Http reponse headers will be shown here");
+    ui->response->setPlaceholderText("Http response will be shown here");
 }
 
 MainWindow::~MainWindow()
@@ -23,6 +27,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_getButton_clicked()
 {
     QString url = ui->urlInput->text();
+
+    if (url == "")
+    {
+        return;
+    }
 
     QEventLoop loop;
     QNetworkAccessManager *pQNAM = new QNetworkAccessManager;
