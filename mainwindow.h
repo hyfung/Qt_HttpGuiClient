@@ -18,8 +18,6 @@ public:
 private slots:
     void on_getButton_clicked();
 
-    void on_pushButton_clicked();
-
     void on_exitButton_clicked();
 
 private:
